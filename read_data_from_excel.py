@@ -22,9 +22,3 @@ wine_categories: collections.defaultdict = collections.defaultdict(
     },
 
 )
-
-# print(pformat(wine_categories))
-
-for wine_category in wine_categories:
-    print(wine_category)
-    print(wine_categories[wine_category])
