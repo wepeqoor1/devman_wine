@@ -120,10 +120,12 @@
               <div class="wine_v_1 text-center pb-4 pt-5">
                 <img src="images/{{ wine_item.Картинка }}" alt="Image" class="img-fluid">
                 <h3 class="heading mt-3 mb-3 text-dark">{{ wine_item.Название }}</h3>
-                <p>
-                  Сорт винограда - {{ wine_item.Сорт }}<br/>
-                  <span class="price">300 р.</span>
-                </p>
+                {% if wine_item.Сорт %}
+                  <p>
+                    Сорт винограда - {{ wine_item.Сорт }}<br/>
+                    <span class="price">300 р.</span>
+                  </p>
+                {% endif %}
               </div>
             </div>
           {% endfor %}
