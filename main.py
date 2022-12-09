@@ -2,8 +2,8 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from word_parsing import current_year_winery
-from read_data_from_excel import wine_categories
+from year_word_declension import current_year_winery
+from read_data_from_excel import get_assortment_wines
 
 
 env = Environment(
@@ -15,7 +15,7 @@ template = env.get_template('template.html')
 
 rendered_page = template.render(
     current_year_winery=current_year_winery,
-    wines_assortment=wine_categories,
+    wines_assortment=get_assortment_wines(),
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
@@ -23,3 +23,4 @@ with open('index.html', 'w', encoding="utf8") as file:
 
 server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
 server.serve_forever()
+# 127.0.0.1:8000/index.html
