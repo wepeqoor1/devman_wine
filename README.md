@@ -18,15 +18,20 @@
 
 - Скачайте код
 - Установите виртуальное окружение:
+Для Windows
+```
+python -m venv venv
+```
+Для Linux  
 ```
 python3 -m venv venv
 ```
 - Перейдите в вируальное окружение:
-Для Windows
+
 ```
 venv/Scripts/activate
 ```   
-Для Linux  
+
 ```
 venv/bin/activate
 ``` 
