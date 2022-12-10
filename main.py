@@ -21,6 +21,7 @@ def parsing_console_arguments():
     parser.add_argument(
         "--file",
         help="Введите название файла",
+        default='wine.xlsx'
     )
 
     return parser.parse_args()
