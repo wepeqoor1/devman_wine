@@ -6,18 +6,11 @@ import pandas as pd
 from exceptions import ToManyXlsxFilesException
 
 
-def get_assortment_wines() -> collections.defaultdict:
+def get_assortment_wines(xlsx_file) -> collections.defaultdict:
     """
     Из .xlsx файла считывает данные и преобразует в массив collections.defaultdict
     """
-    xlsx_files = []
-    for file in os.listdir():
-        if '.xlsx' in file:
-            xlsx_files.append(file)
-    if len(xlsx_files) != 1:
-        raise ToManyXlsxFilesException
 
-    xlsx_file = xlsx_files[0]
     excel_data_df: pd.DataFrame = pd.read_excel(
         xlsx_file,
         sheet_name='Лист1',

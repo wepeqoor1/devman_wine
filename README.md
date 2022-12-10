@@ -42,11 +42,12 @@ pip install -r requirements.txt
 - Запустите сайт командой: 
 Для Windows
 ```
-python main.py
+python main.py --file <file.xlsx> 
+
 ``` 
 для Linux 
 ```
-python3 main.py
+python3 main.py --file <file.xlsx>
 ``` 
 - Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
 

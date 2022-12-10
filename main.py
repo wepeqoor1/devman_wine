@@ -1,3 +1,4 @@
+import argparse
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -8,7 +9,26 @@ from exceptions import ToManyXlsxFilesException
 from year_word_declension import get_year_with_article
 
 
+def parsing_console_arguments():
+    parser = argparse.ArgumentParser(
+        description=(
+            """
+                Заупск программы:
+                `python main.py --file <file.xlsx>`    
+            """
+        )
+    )
+    parser.add_argument(
+        "--file",
+        help="Введите название файла",
+    )
+
+    return parser.parse_args()
+
+
 def main():
+    args = parsing_console_arguments()
+    xlsx_file = args.file
     try:
         env = Environment(
             loader=FileSystemLoader('.'),
@@ -17,7 +37,7 @@ def main():
         template = env.get_template('template.html')
         rendered_page = template.render(
             year_with_article=get_year_with_article(),
-            wines_assortment=get_assortment_wines(),
+            wines_assortment=get_assortment_wines(xlsx_file),
         )
         with open('index.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
