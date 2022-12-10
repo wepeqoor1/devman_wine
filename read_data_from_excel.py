@@ -10,9 +10,8 @@ def get_assortment_wines() -> collections.defaultdict:
     """
     Из .xlsx файла считывает данные и преобразует в массив collections.defaultdict
     """
-    files = os.listdir()
     xlsx_files = []
-    for file in files:
+    for file in os.listdir():
         if '.xlsx' in file:
             xlsx_files.append(file)
     if len(xlsx_files) != 1:
