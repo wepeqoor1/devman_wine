@@ -10,5 +10,5 @@ ENV/
 __pycache__
 .idea
 
-# Files
+# HTML files
 index.html
