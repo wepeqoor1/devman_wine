@@ -4,7 +4,7 @@ from datetime import datetime
 YEAR_OF_CREATION_WINERY: int = 1920
 
 
-def year_with_article() -> str:
+def get_year_with_article() -> str:
     current_year: int = datetime.now().year
     winery_age = current_year - YEAR_OF_CREATION_WINERY
     """
