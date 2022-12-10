@@ -1,2 +1,2 @@
-class ToManyXlsxFilesException:
+class ToManyXlsxFilesException(BaseException):
     pass
