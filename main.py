@@ -29,7 +29,7 @@ def get_console_arguments():
 
 def main():
     args = get_console_arguments()
-    xlsx_file = args.file
+    xlsx_filename = args.file
     try:
         env = Environment(
             loader=FileSystemLoader('.'),
@@ -38,7 +38,7 @@ def main():
         template = env.get_template('template.html')
         rendered_page = template.render(
             year_with_article=get_year_with_article(),
-            wines_assortment=get_assortment_wines(xlsx_file),
+            wines_assortment=get_assortment_wines(xlsx_filename),
         )
         with open('index.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
