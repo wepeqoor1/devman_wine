@@ -9,7 +9,7 @@ from exceptions import ToManyXlsxFilesException
 from year_word_declension import get_year_with_article
 
 
-def parsing_console_arguments():
+def get_console_arguments():
     parser = argparse.ArgumentParser(
         description=(
             """
@@ -28,7 +28,7 @@ def parsing_console_arguments():
 
 
 def main():
-    args = parsing_console_arguments()
+    args = get_console_arguments()
     xlsx_file = args.file
     try:
         env = Environment(
